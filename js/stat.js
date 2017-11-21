@@ -11,10 +11,8 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.font = '16px PT Mono';
   ctx.fillText('Ура вы победили!', 150, 30);
   ctx.fillText('Cписок результатов: ', 150, 60);
-  
   var max = -1;
   var maxIndex = -1;
-
   for (var i = 0; i < times.length; i++) {
     var time = times[i];
     if (time > max) {
@@ -22,13 +20,13 @@ window.renderStatistics = function (ctx, names, times) {
       maxIndex = i;
     }
   }
-  var histogramWidth = 150;//высота гистограммы px;
-  var step = histogramWidth / (max - 0);//пропорция  px;
-  var barWidth = 40;//ширина столбца px; 
-  var indent = barWidth + 50;//расстояние между столбцами px;
-  var initialX = 180;//координата х px;  
-  var initialY = 240;//координата у px;  
-  var lineHeight = 15;// расстояние м/у столбиками и текстом px;
+  var histogramWidth = 150;
+  var step = histogramWidth / (max - 0);
+  var barWidth = 40;
+  var indent = barWidth + 50;
+  var initialX = 180;
+  var initialY = 240;
+  var lineHeight = 15;
   for (var i = 0; i < times.length; i++) {
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
