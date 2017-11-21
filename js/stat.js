@@ -22,22 +22,20 @@ window.renderStatistics = function (ctx, names, times) {
       maxIndex = i;
     }
   }
-  var histogramWidth = 150; //высота гистограммы px;
-  var step = histogramWidth / (max - 0); //пропорция  px;
-  var barWidth = 40; //ширина столбца px; 
-  var indent = barWidth + 50; //расстояние между столбцами px;
-  var initialX = 180; //координата х px;  
-  var initialY = 240;  //координата у px;  
+  var histogramWidth = 150;//высота гистограммы px;
+  var step = histogramWidth / (max - 0);//пропорция  px;
+  var barWidth = 40;//ширина столбца px; 
+  var indent = barWidth + 50;//расстояние между столбцами px;
+  var initialX = 180;//координата х px;  
+  var initialY = 240;//координата у px;  
   var lineHeight = 15;// расстояние м/у столбиками и текстом px;
-  
-  for(var i = 0; i < times.length; i++) {
-    if (names[i] == 'Вы') {
-       ctx.fillStyle = 'rgba(255, 0, 0, 1)'
+  for (var i = 0; i < times.length; i++) {
+    if (names[i] === 'Вы') {
+      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.random() + ')';
-    }
-      
-    ctx.fillRect(initialX + indent * i, initialY, - barWidth, - times[i] * step);
+    }    
+    ctx.fillRect(initialX + indent * i, initialY, -barWidth, -times[i] * step);
     ctx.fillStyle = 'rgba(0, 0, 0, 1)';
     ctx.fillText(Math.floor(times[i]), (initialX + indent * i) - barWidth, initialY - (times[i] * step + lineHeight));
     ctx.fillText(names[i], (initialX + indent * i) - barWidth, initialY + lineHeight);
